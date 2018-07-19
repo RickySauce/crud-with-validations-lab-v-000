@@ -15,7 +15,7 @@ class SongsController < ApplicationController
   def create 
     binding.pry
     @song = Song.new
-    if @song.create(song_params(:title, :artist_name))
+    @song.create(song_params(:title, :artist_name))
   end 
 
   def edit 
