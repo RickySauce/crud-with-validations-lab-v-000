@@ -13,9 +13,11 @@ class SongsController < ApplicationController
   end 
 
   def create 
-    binding.pry
-    @song = Song.create(song_params(:title, :artist_name))
-    @song.
+    if @song = Song.create(song_params(:title, :artist_name, :released, :genre, :release_year))
+      redirect_to song_path(@song)
+    else 
+      render :new 
+    end
   end 
 
   def edit 
