@@ -13,8 +13,8 @@ class SongsController < ApplicationController
   end 
 
   def create 
-    binding.pry
     @song = Song.new
+    if @song.create(song_params(:title, :artist_name))
   end 
 
   def edit 
@@ -27,7 +27,7 @@ class SongsController < ApplicationController
   private 
 
   def song_params(*args)
-    params.require(:song).require(*args)
+    params.require(:song).permit(*args)
   end
   
 end
