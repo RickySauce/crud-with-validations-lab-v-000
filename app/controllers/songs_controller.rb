@@ -26,6 +26,9 @@ class SongsController < ApplicationController
   end 
 
   def update 
+    @song = Song.find(params[:id])
+    @song.attributes = song_params(:title, :artist_name, :released, :genre, :release_year)
+    
   end 
 
   private 
